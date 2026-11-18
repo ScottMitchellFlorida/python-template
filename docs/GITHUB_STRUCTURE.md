@@ -51,6 +51,20 @@ All of this comes free when you start from the template.
   - Allow squash merging only; turn on "Automatically delete head branches"
   - Branch protection or ruleset on `main`: require PRs and require the `CI / test` check to pass
   - Turn on Dependabot alerts and secret scanning (Settings → Code security)
+- On a free plan, rulesets are **only enforced on public repos**. Private repos still run CI on every
+  push and PR; just don't merge until the check is green.
+
+## 5a. Non-Python repos
+
+`python-template` is only for Python. For other kinds of project, create an **empty** repo on GitHub
+and choose the matching `.gitignore` from the dropdown:
+
+- **iPhone / iOS apps:** pick the `Swift` `.gitignore`. Create the project in Xcode on a Mac, then connect
+  it to the repo: Integrate menu → Clone, or Source Control → New Remote. Keep App Store keys,
+  provisioning profiles and `GoogleService-Info.plist`-style config files out of git.
+- **JavaScript / TypeScript web front ends:** pick the `Node` `.gitignore`.
+
+Naming, visibility, README, topics and lifecycle rules still apply.
 
 ## 6. Lifecycle
 
@@ -72,4 +86,6 @@ Fill this in as repos are created; it's the map of everything.
 
 | Repo | Prefix/type | Visibility | Status | Description |
 |---|---|---|---|---|
-| (this template) | template | private | active | Python project template and conventions |
+| `python-template` | template | public | active | Python project template and conventions |
+| `Project1` | web app (Python) | private | planned | Web app. Create from `python-template`. |
+| `Project2` | iPhone app (Swift) | private | planned | iOS app. Create empty with the Swift `.gitignore`, then push from Xcode. |
